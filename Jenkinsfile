@@ -20,18 +20,10 @@ pipeline {
 
                   
                     sh 'docker build -t nodedemo .' 
+					 sh 'docker run -d --name node-demo -p 80:3000 nodedemo'
                     }
                 }
             }
         }
-        stage('Deploy to remote docker host') {
-          
-            steps {
-                script {
 
-      
-                   sh 'docker run -d --name node-demo -p 80:3000 nodedemo'
-                }
-            }
-        }
     }
